@@ -5,6 +5,13 @@ import React, { Component } from 'react';
 
 import * as patientsActs from '../state/modules/patients/actions';
 import * as patientsSelectors from '../state/modules/patients/selectors';
+import Header from './header/Header';
+import MainPanel from './mainPanel/MainPanel';
+import PatientDetails from './patientDetails/PatientDetails';
+import PatientList from './patientList/PatientList';
+import Sidebar from './sidebar/Sidebar';
+
+import './App.css';
 
 class App extends Component {
   static propTypes = {
@@ -20,22 +27,74 @@ class App extends Component {
     patientsActions: {}
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      patients: []
+    }
+  }
+
   componentDidMount() {
     const { patientsActions } = this.props;
-
+    
     patientsActions.fetchPatients();
   }
 
-  render() {
-    const { patients, patientsActions } = this.props;
+  componentWillReceiveProps(nextProps) {
+    const { patients } = nextProps;
+ 
+    if (patients.length) {
+      this.setState({
+        patients
+      })
+      // debugger
+    }  
+    // debugger 
+  }
 
+  onPatientSelectHandler = e => {
+    alert(e.target.value);
+  }
+
+  render() {
+    const { patients } = this.props;
+
+    // debugger
     return (
-      <div>
-        {patients.map(patient => {
-            const { id } = patient;
-  
-            return <div>{id}</div>;
-          })}
+      <div className="app">
+        <Header>Patients Monitor</Header>
+
+        <main className="app__content">
+          <Sidebar>
+            {/* <PatientList
+              patients={patients}
+              onPatientSelect={this.onPatientSelectHandler}
+            /> */}
+            <h2>Patients:</h2>
+
+            <ul className="list">
+              {patients && (
+                patients.map(patient => {
+                  const { id, name } = patient;
+
+                  return (
+                    <li 
+                      className="list__item" 
+                      key={id}
+                      onClick={this.onPatientSelectHandler}
+                    >
+                      {name}
+                    </li>
+                  );
+                }))}
+            </ul>
+
+            {/* <PatientDetails /> */}
+          </Sidebar>
+
+          <MainPanel />
+        </main>
       </div>
     );
   }

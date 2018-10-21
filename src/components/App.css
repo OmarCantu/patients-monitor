@@ -1,0 +1,17 @@
+.app {
+
+}
+
+.app__content {
+
+}
+
+.app * {
+  font-family: Arial;
+}
+
+.app h1,
+.app h2,
+.app ul {
+  margin: 0;
+}

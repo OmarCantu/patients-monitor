@@ -2,10 +2,6 @@ import { createAction } from 'redux-actions';
 
 import patientsActionTypes from '../actionTypes';
 
-export const ping = createAction(
-  patientsActionTypes.PING
-);
-
 export const fetchPatients = createAction(
   patientsActionTypes.FETCH_PATIENTS
 );

@@ -6,9 +6,11 @@ export const patientsEpic = action$ =>
   action$.ofType(patientsActionTypes.FETCH_PATIENTS)
     .switchMap(() =>
       api.getPatients()
-        .map(response =>           
-          patientsActions.fetchPatientsSuccess(response)
-        )
+        .map(response => {
+          const x = response;
+          // debugger 
+          return patientsActions.fetchPatientsSuccess(response)
+        })
         .catch(error =>
           patientsActions.fetchPatientsFailure(error)
         )
