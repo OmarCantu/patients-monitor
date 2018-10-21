@@ -1,8 +1,10 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 
 import * as patientsActs from '../state/modules/patients/actions';
 import * as patientsSelectors from '../state/modules/patients/selectors';
@@ -38,19 +40,28 @@ class App extends Component {
 
   componentDidMount() {
     const { patientsActions } = this.props;
-    
     patientsActions.fetchPatients();
+
+    const intervalId = setInterval(this.showToast, 10000);
+    this.setState({ intervalId });
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   const { patients } = nextProps;
- 
-  //   if (patients.length) {
-  //     this.setState({
-  //       patients
-  //     })
-  //   }  
-  // }
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
+  }
+
+  showToast = () => {
+    const location = Math.floor(Math.random() * 4); // random integer from 0 to 3
+    const patient = Math.floor(Math.random() * 3); // random integer from 0 to 2;
+
+    const { patients } = this.props;
+    const locations = ['Bathroom', 'Bedroom', 'Kitchen', 'Living room'];
+    const patientName = patients[patient].name;
+
+    const message = `Patient ${patientName} is in the ${locations[location]}`;
+
+    toast.warn(message);
+  }
 
   onPatientSelectHandler = id => {
     this.setState({
@@ -68,6 +79,10 @@ class App extends Component {
     return (
       <div className="app">
         <Header>Patients Monitor</Header>
+
+        <ToastContainer 
+          autoClose={3000}
+        />
 
         <main className="app__content">
           <Sidebar>

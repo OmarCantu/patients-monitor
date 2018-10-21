@@ -27,6 +27,9 @@
   background-color: #ef0b0b;
   border-radius: 50%;
   height: 20px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
   width: 20px;
 }
 

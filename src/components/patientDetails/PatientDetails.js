@@ -21,11 +21,11 @@ const PatientDetails = props => {
           className="details__image"
           src={src}
         />
-        <p className="details__contact-data">
+        <div className="details__contact-data">
           <div>{name}, {age}</div>
           <div>{phone}</div>
           <div>{address}</div>
-        </p>
+        </div>
       </div>
     )
   };
