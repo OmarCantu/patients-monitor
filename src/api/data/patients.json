@@ -1,0 +1,49 @@
+{
+	"patients": [
+		{
+			"address": "Oak St. 123, Sydney",
+			"age": "80",
+			"currentLocation": "3,6",
+			"homeLayout": "../static/images/john-doe.png",
+			"id": 1,
+			"locationMapping": {
+				"bathroom": "1150,0:1600,280",
+				"bedroom": "1150,280:1600:800",
+				"kitchen": "0,0:450,800",
+				"livingRoom": "450,0:1150,800"
+			},
+			"name": "John Doe",
+			"phone": "(02) 9876 5432"
+		},
+		{
+			"address": "Elizabeth St. 456, Sydney",
+			"age": "84",
+			"currentLocation": "12,8",
+			"homeLayout": "../static/images/jane-crow.png",
+			"id": 1,
+			"locationMapping": {
+				"bathroom": "0,510:350,800",
+				"bedroom": "0,0:350:510",
+				"kitchen": "1110,0:1600,800",
+				"livingRoom": "350,0:1110,800"
+			},
+			"name": "Jane Crow",
+			"phone": "(02) 9074 6001"
+		},
+		{
+			"address": "Broadway St. 789, Sydney",
+			"age": "79",
+			"currentLocation": "6,1",
+			"homeLayout": "../static/images/mary-carlson.png",
+			"id": 1,
+			"locationMapping": {
+				"bathroom": "1010,560:1600,800",
+				"bedroom": "1010,0:1600:560",
+				"kitchen": "0,0:1010,320",
+				"livingRoom": "0,320:1010,800"
+			},
+			"name": "Mary Carlson",
+			"phone": "(02) 8790 1425"
+		}
+	]
+}
