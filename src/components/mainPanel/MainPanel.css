@@ -1,0 +1,20 @@
+.main-panel {
+  flex-grow: 1;
+  padding: 20px;
+  position: relative;
+}
+
+.main-panel__title {
+  color: #3b424f;
+  font-size: 20px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.main-panel__pointer-wrapper {
+  position: absolute;
+}
+
+.main-panel__image {
+  max-width: 100%;
+}

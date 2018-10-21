@@ -1,5 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -31,7 +32,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      patients: []
+      selectedPatient: 1
     }
   }
 
@@ -41,26 +42,29 @@ class App extends Component {
     patientsActions.fetchPatients();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { patients } = nextProps;
+  // componentWillReceiveProps(nextProps) {
+  //   const { patients } = nextProps;
  
-    if (patients.length) {
-      this.setState({
-        patients
-      })
-      // debugger
-    }  
-    // debugger 
-  }
+  //   if (patients.length) {
+  //     this.setState({
+  //       patients
+  //     })
+  //   }  
+  // }
 
-  onPatientSelectHandler = e => {
-    alert(e.target.value);
+  onPatientSelectHandler = id => {
+    this.setState({
+      selectedPatient: id
+    })
   }
 
   render() {
     const { patients } = this.props;
 
-    // debugger
+    const { selectedPatient } = this.state;
+
+    const visiblePatient = patients[selectedPatient - 1];
+
     return (
       <div className="app">
         <Header>Patients Monitor</Header>
@@ -71,26 +75,33 @@ class App extends Component {
               patients={patients}
               onPatientSelect={this.onPatientSelectHandler}
             /> */}
-            <h2>Patients:</h2>
+            <div className="list-wrapper">
+              <h2 className="list-heading">Select a patient:</h2>
 
-            <ul className="list">
-              {patients && (
-                patients.map(patient => {
-                  const { id, name } = patient;
+              <ul className="list">
+                {patients && (
+                  patients.map(patient => {
+                    const { id, name } = patient;
 
-                  return (
-                    <li 
-                      className="list__item" 
-                      key={id}
-                      onClick={this.onPatientSelectHandler}
-                    >
-                      {name}
-                    </li>
-                  );
-                }))}
-            </ul>
+                    const listItemClass = classNames({
+                      'list__item': true,
+                      'list__item--active': selectedPatient === id,
+                    });
 
-            {/* <PatientDetails /> */}
+                    return (
+                      <li 
+                        className={listItemClass}
+                        key={id}
+                        onClick={() => this.onPatientSelectHandler(id)}
+                      >
+                        {name}
+                      </li>
+                    );
+                  }))}
+              </ul>
+            </div>
+
+            <PatientDetails patient={visiblePatient} />
           </Sidebar>
 
           <MainPanel />
