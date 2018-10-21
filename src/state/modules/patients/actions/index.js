@@ -1,5 +1,3 @@
-//export const ping = () => ({ type: 'PING' });
-
 import { createAction } from 'redux-actions';
 
 import patientsActionTypes from '../actionTypes';

@@ -1,3 +1,5 @@
-export const initialState = {
+const initialState = {
   patients: {}
 }
+
+export default initialState;

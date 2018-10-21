@@ -8,7 +8,7 @@ import * as patientsSelectors from '../state/modules/patients/selectors';
 
 class App extends Component {
   static propTypes = {
-    patients: PropTypes.object,
+    patients: PropTypes.array,
     patientsActions: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.object
@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   static defaultProps = {
-    patients: {},
+    patients: [],
     patientsActions: {}
   };
 
@@ -28,10 +28,14 @@ class App extends Component {
 
   render() {
     const { patients, patientsActions } = this.props;
- 
+
     return (
       <div>
-        {/* {patients} */}
+        {patients.map(patient => {
+            const { id } = patient;
+  
+            return <div>{id}</div>;
+          })}
       </div>
     );
   }

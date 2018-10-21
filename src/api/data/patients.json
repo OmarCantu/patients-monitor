@@ -20,7 +20,7 @@
 			"age": "84",
 			"currentLocation": "12,8",
 			"homeLayout": "../static/images/jane-crow.png",
-			"id": 1,
+			"id": 2,
 			"locationMapping": {
 				"bathroom": "0,510:350,800",
 				"bedroom": "0,0:350:510",
@@ -35,7 +35,7 @@
 			"age": "79",
 			"currentLocation": "6,1",
 			"homeLayout": "../static/images/mary-carlson.png",
-			"id": 1,
+			"id": 3,
 			"locationMapping": {
 				"bathroom": "1010,560:1600,800",
 				"bedroom": "1010,0:1600:560",

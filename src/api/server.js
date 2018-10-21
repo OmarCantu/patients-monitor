@@ -7,12 +7,7 @@ const JSONServerMiddleware = jsonServer.defaults();
 
 server.use(JSONServerMiddleware);
 
-server.use(async (req, res, next) => {
-  await new Promise(done => setTimeout(done, 1500));
-  next();
-});
-
-server.post('/patients', (req, res) => {
+server.get('/patients', (req, res) => {
   res.jsonp(patients);
 });
 
