@@ -1,7 +1,7 @@
 {
 	"patients": [
 		{
-			"address": "Oak St. 123, Sydney",
+			"address": "Oak St. 123, Sydney", 
 			"age": "80",
 			"currentLocation": "3,6",
 			"homeLayout": "../static/images/john-doe.png",
