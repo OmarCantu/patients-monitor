@@ -9,15 +9,17 @@ const MainPanel = props => (
   <div className="main-panel">
     <h2 className="main-panel__title">Patient's home</h2>
 
-    <div className="main-panel__pointer-wrapper">
-      
-    </div>
+    <div className="main-panel__content">
+      <div className="main-panel__pointer-wrapper">
+        <span className="main-panel__pointer"/>
+      </div>
 
-    <img
+      <img
         alt="Patient's home"
         className="main-panel__image"
         src={src}
       />
+    </div>
   </div>
 )
 

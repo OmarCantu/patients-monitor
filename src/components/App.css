@@ -6,12 +6,6 @@
   font-family: Arial;
 }
 
-.app h1,
-.app h2,
-.app ul {
-  margin: 0;
-}
-
 .app ul {
   list-style: none;
 }
@@ -20,6 +14,7 @@
 .list {
   color: #3b424f;
   font-size: 16px;
+  margin: 0;
 }
 
 .list {
